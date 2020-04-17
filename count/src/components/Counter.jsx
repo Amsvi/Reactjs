@@ -17,8 +17,10 @@ class test1 extends Component {
   makeArgziro = () => {
     return this.setState({ args: this.state.args.splice(0, 0) });
   };
-  handleAffz = () => {
-    return this.setState({ count: this.state.count + 1 });
+  // recieve argument to this function
+  handleIncrement = (product) => {
+    console.log(product);
+    this.setState({ count: this.state.count + 1 });
   };
   buttomRnd() {
     let butooo = "btn m-2 badge-";
@@ -48,7 +50,10 @@ class test1 extends Component {
         </p>
         <ul>{this.renderArgs()}</ul>
 
-        <button onClick={this.handleAffz} className="btn m-2 badge-primary">
+        <button
+          onClick={() => this.handleIncrement({ id: 1 })}
+          className="btn m-2 badge-primary"
+        >
           increment
         </button>
         <button className={this.buttomRnd()}>{this.state.count}</button>
