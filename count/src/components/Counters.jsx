@@ -14,13 +14,11 @@ class Counters extends Component {
     return (
       <div>
         {this.state.Counters.map((counter) => (
-          <Counter key={counter.id} value={counter.value}>
-            {/* value attribute, that we set above, are passed to counter
-            Component using js object called "props", there is special prop called
-            "CHILDREN"and we use it when we pass something between OPENING AND
-            CLOSING TAG of an element*/}
-            <h4>Counter #{counter.id}</h4>
-          </Counter>
+          <Counter
+            key={counter.id}
+            value={counter.value}
+            id={counter.id}
+          ></Counter>
         ))}
       </div>
     );
