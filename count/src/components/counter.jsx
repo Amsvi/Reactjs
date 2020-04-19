@@ -2,28 +2,28 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    count: 0,
+    value: this.props.value,
   };
   // recieve argument to this function
   handleIncrement = (product) => {
     console.log(product);
-    this.setState({ count: this.state.count + 1 });
+    this.setState({ value: this.state.value + 1 });
   };
   buttomRnd() {
     let butooo = "btn m-2 badge-";
-    butooo += this.state.count <= 0 ? "warning" : "success";
+    butooo += this.state.value <= 0 ? "warning" : "success";
     return butooo;
   }
   render() {
     return (
       <div>
+        <button className={this.buttomRnd()}>{this.state.value}</button>
         <button
-          onClick={() => this.handleIncrement({ id: 1 })}
+          onClick={() => this.handleIncrement()}
           className="btn m-2 badge-primary"
         >
           increment
         </button>
-        <button className={this.buttomRnd()}>{this.state.count}</button>
       </div>
     );
   }
