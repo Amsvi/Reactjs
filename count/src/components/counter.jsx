@@ -5,8 +5,7 @@ class Counter extends Component {
     value: this.props.value,
   };
   // recieve argument to this function
-  handleIncrement = (product) => {
-    console.log(product);
+  handleIncrement = () => {
     this.setState({ value: this.state.value + 1 });
   };
   buttomRnd() {
@@ -17,13 +16,25 @@ class Counter extends Component {
   render() {
     return (
       <div>
+        {/* in this case we could use props simply as I changed 
+        the code we get same result children is use for times
+         there are complex element to a child component such as 
+         dialog bux in those case we use children */}
         <h4>Counter # {this.props.id}</h4>
         <button className={this.buttomRnd()}>{this.state.value}</button>
         <button
-          onClick={() => this.handleIncrement()}
+          onClick={this.handleIncrement}
           className="btn m-2 badge-primary"
         >
           increment
+        </button>
+        <button
+          //here counter componenet is raising an event
+          // its parent (counterS) component is handling that event
+          onClick={this.props.onDeleteEvent}
+          className="btn btn-danger btn-sm m-2"
+        >
+          Delete
         </button>
       </div>
     );
