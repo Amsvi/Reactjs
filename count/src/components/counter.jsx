@@ -11,12 +11,13 @@ class Counter extends Component {
   };
   buttomRnd() {
     let butooo = "btn m-2 badge-";
-    butooo += this.state.value <= 0 ? "warning" : "success";
+    butooo += this.state.value === 0 ? "warning" : "success";
     return butooo;
   }
   render() {
     return (
       <div>
+        {this.props.children}
         <button className={this.buttomRnd()}>{this.state.value}</button>
         <button
           onClick={() => this.handleIncrement()}
