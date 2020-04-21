@@ -6,7 +6,7 @@ import "./App.css";
 class App extends Component {
   state = {
     counters: [
-      { id: 0, value: 0 },
+      { id: 0, value: 4 },
       { id: 1, value: 0 },
       { id: 2, value: 0 },
       { id: 3, value: 0 },
@@ -18,6 +18,14 @@ class App extends Component {
     const index = counters.indexOf(counter);
     counters[index] = { ...counter };
     counters[index].value++;
+    this.setState({ counters });
+  };
+
+  handDeIncrement = (counter) => {
+    const counters = [...this.state.counters];
+    const index = counters.indexOf(counter);
+    counters[index] = { ...counter };
+    counters[index].value--;
     this.setState({ counters });
   };
 
@@ -46,6 +54,7 @@ class App extends Component {
           <Counters
             counters={this.state.counters}
             onIncrement={this.handleIncrement}
+            onDecrement={this.handDeIncrement}
             onDelete={this.handleDeleteEvent}
             onReset={this.handleReset}
           />
