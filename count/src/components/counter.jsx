@@ -3,7 +3,6 @@ import React, { Component } from "react";
 class Counter extends Component {
   // by removing state it becomes controlled component
   // it recieves all the data via props and raises event when ever data need to be changed.
-  // at this time this component is entirely controlled by its parent.
   render() {
     return (
       <div>
