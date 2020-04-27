@@ -13,7 +13,7 @@ class App extends Component {
     ],
   };
 
-  handleIncrement = (counter) => {
+  handleIncrement = counter => {
     const counters = [...this.state.counters];
     const index = counters.indexOf(counter);
     counters[index] = { ...counter };
@@ -21,7 +21,7 @@ class App extends Component {
     this.setState({ counters });
   };
 
-  handDeIncrement = (counter) => {
+  handDeIncrement = counter => {
     const counters = [...this.state.counters];
     const index = counters.indexOf(counter);
     counters[index] = { ...counter };
@@ -30,7 +30,7 @@ class App extends Component {
   };
 
   handleReset = () => {
-    const counters = this.state.counters.map((c) => {
+    const counters = this.state.counters.map(c => {
       c.value = 0;
       return c;
     });
@@ -39,8 +39,8 @@ class App extends Component {
 
   //we dont update the state directly, we should make a array without given deleteID
   //and then call setstate of component and let the react update the state
-  handleDeleteEvent = (deleteID) => {
-    const conters1 = this.state.counters.filter((m) => m.id !== deleteID);
+  handleDeleteEvent = deleteID => {
+    const conters1 = this.state.counters.filter(m => m.id !== deleteID);
     this.setState({ counters: conters1 });
   };
 
@@ -48,7 +48,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <NavBar
-          totalCounters={this.state.counters.filter((c) => c.value > 0).length}
+          totalCounters={this.state.counters.filter(c => c.value > 0).length}
         />
         <main className="container">
           <Counters

@@ -40,7 +40,6 @@ class Counter extends Component {
     butooo += this.props.counter.value === 0 ? "warning" : "success";
     return butooo;
   }
-
   formatCount() {
     const { value } = this.props.counter;
     return value === 0 ? "zero" : value;
